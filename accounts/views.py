@@ -3,7 +3,10 @@ from django.contrib.auth.models import User
 from accounts.forms import *
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, logout
-# Create your views here.
+from django.contrib.auth.decorators import login_required
+
+
+# Register --------------------------------------------------------------------------
 
 def register_page(request):
 
@@ -27,6 +30,8 @@ def register_page(request):
     }    
 
     return render(request, 'form_base.html', context)
+
+# Login --------------------------------------------------------------------------
 
 def login_page(request):
 
@@ -55,7 +60,13 @@ def login_page(request):
 
     return render(request, 'form_base.html', context)
 
+
+# Logout --------------------------------------------------------------------------
+
+@login_required
 def logout_page(request):
 
-    return redirect('dashboard')
+    logout(request)
+
+    return redirect('login')
 

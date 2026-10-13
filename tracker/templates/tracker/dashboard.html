@@ -6,6 +6,44 @@
 
 
 {% block content %}
+
     <h1>Welcome to FitBit, {{request.user.username}}</h1>
+
+    <div class="row">
+        <div class="col-md-4">
+        <div class="card">
+        <h5 class="card-header">Requird BMR</h5>
+        <div class="card-body">
+            <h5 class="card-title">{{bmr}} kcal</h5>
+            <p class="card-text"><i class="bi bi-calendar-check"></i></p>
+            <a href="#" class="btn btn-primary">Health Tips</a>
+        </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card">
+        <h5 class="card-header">Consumed Calorie</h5>
+        <div class="card-body">
+            <h5 class="card-title">{{total_consumed_calorie}} kcal</h5>
+            <p class="card-text"><i class="bi bi-fork-knife"></i></p>
+            <a href="#" class="btn btn-primary">Health Tips</a>
+        </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card">
+        <h5 class="card-header">Remaining Calories</h5>
+        <div class="card-body">
+            <h5 class="card-title">{{remaining_calorie}} kcal</h5>
+            <p class="card-text"><i class="bi bi-clipboard-pulse"></i></p>
+            <a href="#" class="btn btn-primary">Health Tips</a>
+        </div>
+        </div>
+    </div>
+    </div>
+
+    <p>Suggestion: {{suggestion}}</p>
 {% endblock content %}
     
